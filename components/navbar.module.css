@@ -1,0 +1,102 @@
+/* ORANGE #FC9F5B; 
+    LIGHT ORANGE #FBD1A2;
+    TEAL / LIGHT BLUE #7DCFB6;
+    DARK GREEN #118049;
+*/
+
+.App_Navbar_Container {
+    width: 100%;
+    position: fixed; 
+    top:0px;
+    left:0px; 
+    height:100px; 
+    width: 100%; 
+    max-width: 100vw;
+    /* overflow:hidden */
+    max-height: 120px;
+    z-index: 100;
+}
+
+.App_Navbar {
+    display: flex;
+    position: absolute;
+    height:90%;
+    top: 0px;
+    max-height: 120px;  
+    width:100%;
+    background-color: #FBD1A2;
+}
+.Scrolled {
+    background-color: #FBD1A2;
+}
+.Navbar_Links {
+    position: absolute;
+    right: 1px;
+    margin-right: 2%;
+    margin-top: 20px;
+}
+.Navbar_List {
+    display: flex;
+}
+.App_Navbar a {
+    text-decoration: none;
+    color: whitesmoke;/* #7DCFB6; */
+    font-size: 38px;
+    padding: 2px 5px;
+    font-weight: normal;
+    /* text-shadow: 1px 1px black; */
+}
+#Navbar_Logo {
+    max-height: 99%;
+    margin-top: 2px;
+    margin-left: 8px;
+    margin-bottom: 3px;
+}
+#MenuIcon {
+    display: none;
+}
+.SmallNav #MenuIcon {
+    display: block;
+    position: absolute;
+    right: 3%;
+    top: 20%;
+}
+.SmallNav .Navbar_List {
+   display: none; 
+}
+.Clicked .Navbar_Links {
+    width: 100%;
+    background-color: #FBD1A2;
+    margin: 0;
+    right: 0;
+    top: 90px;
+}
+.Clicked .Navbar_List {
+    display: block;
+}
+.SmallNav li {
+padding-bottom: 10px;
+}
+/* 1220 px width breaks links*/
+
+@media ( min-width: 925px ) and (max-width: 1220px) {
+    /* .App_Navbar h1 {
+        font-size: 2.3vw;
+    } */
+}
+
+@media (max-width: 1030px) {
+    .App_Navbar {
+        background-color: #FBD1A2;
+    }
+}
+@media (max-width: 780px) {
+    .App_Navbar_Container {
+        position: relative;
+        margin: none;
+    }
+    .App_Navbar {
+        height: 100%;
+    }
+
+}

@@ -15,30 +15,26 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Socketed
         </h1>
-        
-        <div className={styles.grid}>
-        <p className={styles.description}>
-         
-        <h3>New User</h3>
-         </p>
-          </div>
-        <div className={styles.grid}>
-        <p className={styles.description}>
-         
-          <h3><Link href="/rooms/open-rooms"><a>Search by game</a></Link></h3>
-         </p>
-        </div>
-        <div className={styles.grid}>
-        <p className={styles.description}>
-         
-          <h3>Search by theme</h3>
-         </p>
-        </div>
 
+        <div className={styles.grid}>
+          <p className={styles.description}>
+            New User
+         </p>
+        </div>
+        <div className={styles.grid}>
+          <p className={styles.description}>
+            <Link href="/rooms/open-rooms"><a>Search by Rooms</a></Link>
+          </p>
+        </div>
+        <div className={styles.grid}>
+          <p className={styles.description}>
+            Search by Game
+         </p>
+        </div>
       </main>
 
       <footer className={styles.footer}>
-      <a href="/about" >Our Info</a>
+        <a href="/about" >Our Info</a>
       </footer>
     </div>
   )
