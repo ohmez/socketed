@@ -1,41 +1,40 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import { getSortedPostsData } from '../lib/posts'
 
-
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Socketed: Game Finder</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Socketed
-        </h1>
-
-        <div className={styles.grid}>
-          <p className={styles.description}>
-            New User
-         </p>
-        </div>
-        <div className={styles.grid}>
-          <p className={styles.description}>
-            <Link href="/rooms/open-rooms"><a>Search by Rooms</a></Link>
-          </p>
-        </div>
-        <div className={styles.grid}>
-          <p className={styles.description}>
-            Search by Game
-         </p>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a href="/about" >Our Info</a>
-      </footer>
-    </div>
-  )
+export async function getStaticProps() {
+    const allPostsData = getSortedPostsData()
+    return {
+      props: {
+        allPostsData
+      }
+    }
+  }
+export default function Home({ allPostsData }) {
+    return (
+        <Layout home>
+            <Head>
+            <title>{siteTitle}</title>
+            </Head>
+            <section className={utilStyles.headingMd}>…</section>
+            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                <h2 className={utilStyles.headingLg}>Blog</h2>
+                <ul className={utilStyles.list}>
+                    {allPostsData.map(({ id, date, title,content }) => (
+                        <li className={utilStyles.listItem} key={id}>
+                            {title}
+                            <br />
+                            {id}
+                            <br />
+                            {date}
+                            <br />
+                            {content}
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </Layout>
+    )
 }
